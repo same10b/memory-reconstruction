@@ -1,11 +1,29 @@
 const express = require('express');
 const http = require('http');
 const socketIo = require('socket.io');
-const config = require('./config');
 
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
+
+// 環境変数からポート番号を取得（Render.com用）
+const port = process.env.PORT || 3000;
+
+// blockColorsとkeywordGroupsの定義を追加
+const blockColors = [/* カラーコードの配列 */];
+const keywordGroups = [
+  ["水族館"],
+  ["フリッパープール"],
+  ["イルカ"],
+  ["黄色", "オレンジ", "屋根"],
+  ["青"],
+  ["水面", "水"],
+  ["2人"],
+  ["女性", "人"],
+  ["飼育員"],
+  ["スタッフ"],
+  ["木"]
+];
 
 // 静的ファイルの提供
 app.use(express.static('public'));
@@ -37,6 +55,6 @@ io.on('connection', (socket) => {
 });
 
 // サーバー起動
-server.listen(config.port, () => {
-  console.log(`Server running on port ${config.port}`);
+server.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
