@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記憶の再構築</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div id="outputSection">
+      <div id="outputText"></div>
+    </div>
+    <div id="subSection">
+      <div id="randomBlocks"></div>
+      <button id="captureButton">写真を撮る</button>
+    </div>
+    <div id="inputSection">
+      <div class="input-container">
+        <textarea id="inputText" placeholder="ここに文章を入力してください"></textarea>
+        <button id="resetButton">リセット</button>
+      </div>
+    </div>
+  </div>
+  <script src="js/imageProcessor.js"></script>
+  <script src="js/blockManager.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
